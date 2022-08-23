@@ -6,9 +6,20 @@
 
 This package for the [SILE](https://github.com/sile-typesetter/sile) typesetting
 system provides an altenative way to output a table of contents, with two levels
-only being used, but with nice curly braces.
+only being used, but with nice curly braces!
 
 ![fancytoc](fancytoc.png "Fancy table of contents example")
+
+The idea for such a table of contents came from a question from Caleb Maclennan
+in the SILE github repository, from a book he had seen, and I liked it so much
+that I used it in [one of my books](https://sites.google.com/site/dragonbrumeux/contes-et-l%C3%A9gendes-dalmaq)
+made with SILE. So here it is, now provided as an standalone package.
+
+If the [resilient](https://luarocks.org/modules/Omikhleia/resilient.sile) collection
+is installed too, then the fancy table of contents may be styled with the nice styling
+specification offered there. Otherwise, a default styling is applied (which could be
+overidden by redefining some internal commands or hooks, I kept that possibility,
+but you might want to give a try to the “resilient” classes and packages collection.)
 
 ## Installation
 
