@@ -175,7 +175,6 @@ function package:registerStyles ()
   styles:defineStyle("fancytoc-pageno", { inherit = "fancytoc-base" }, { font = { features = "+onum" } })
   styles:defineStyle("fancytoc-level1", { inherit = "fancytoc-base" }, { font = { features = "+smcp" } })
   styles:defineStyle("fancytoc-level2", { inherit = "fancytoc-base" }, {})
-  print("HERE", styles:dumpStyle("fancytoc-pageno"))
 end
 
 package.documentation = [[\begin{document}
