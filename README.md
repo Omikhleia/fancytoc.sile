@@ -5,7 +5,7 @@
 [![Luarocks](https://img.shields.io/luarocks/v/Omikhleia/fancytoc.sile?label=Luarocks&logo=Lua)](https://luarocks.org/modules/Omikhleia/fancytoc.sile)
 
 This package for the [SILE](https://github.com/sile-typesetter/sile) typesetting
-system provides an altenative way to output a table of contents, with two levels
+system provides an alternative way to output a table of contents, with two levels
 only being used, but with nice curly braces!
 
 ![fancytoc](fancytoc.png "Fancy table of contents example")
@@ -17,9 +17,10 @@ made with SILE. So here it is, now provided as an standalone package.
 
 If the [resilient](https://luarocks.org/modules/Omikhleia/resilient.sile) collection
 is installed too, then the fancy table of contents may be styled with the nice styling
-specification offered there. Otherwise, a default styling is applied (which could be
+specifications offered there. Otherwise, a default styling is applied (which can be
 overidden by redefining some internal commands or hooks, I kept that possibility,
-but you might want to give a try to the “resilient” classes and packages collection.)
+but, hey, you might rather want to give a try to the “resilient” classes and packages
+collection.)
 
 ## Installation
 
