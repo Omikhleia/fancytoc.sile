@@ -1,7 +1,7 @@
 # fancytoc.sile
 
-[![license](https://img.shields.io/github/license/Omikhleia/fancytoc.sile)](LICENSE)
-[![Luacheck](https://img.shields.io/github/workflow/status/Omikhleia/fancytoc.sile/Luacheck?label=Luacheck&logo=Lua)](https://github.com/Omikhleia/fancytoc.sile/actions?workflow=Luacheck)
+[![license](https://img.shields.io/github/license/Omikhleia/fancytoc.sile?label=License)](LICENSE)
+[![Luacheck](https://img.shields.io/github/actions/workflow/status/Omikhleia/fancytoc.sile/luacheck.yml?branch=main&label=Luacheck&logo=Lua)](https://github.com/Omikhleia/fancytoc.sile/actions?workflow=Luacheck)
 [![Luarocks](https://img.shields.io/luarocks/v/Omikhleia/fancytoc.sile?label=Luarocks&logo=Lua)](https://luarocks.org/modules/Omikhleia/fancytoc.sile)
 
 This package for the [SILE](https://github.com/sile-typesetter/sile) typesetting
