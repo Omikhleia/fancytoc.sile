@@ -13,9 +13,11 @@ package._name = "fancytoc"
 function package:_init (options)
   base._init(self, options)
 
+  self.class:loadPackage("framebox")
   self.class:loadPackage("parbox")
   self.class:loadPackage("leaders")
   pcall(function () return self.class:loadPackage("resilient.styles") end) -- Optional
+  self:registerStyles()
 end
 
 local function linkWrapper (dest, func)
@@ -63,8 +65,6 @@ function package:findToc (packages)
 end
 
 function package:registerCommands ()
-  self:registerStyles()
-
   self:registerCommand("fancytableofcontents", function (options, _)
     local linking = SU.boolean(options.linking, true)
 
