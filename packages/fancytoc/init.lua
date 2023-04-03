@@ -109,6 +109,7 @@ function package:registerCommands ()
             SILE.call("hfill")
             SILE.call("bracebox", { bracewidth = "0.8em"}, function()
               SILE.call("parbox", { valign = "middle", width = "75%lw" }, function ()
+                SILE.settings:set("document.parindent", SILE.length())
                 for _, c in ipairs(v.children) do
                   SILE.call("parbox", { valign = "top", strut = "rule", minimize = true, width = "80%lw" }, function ()
                     SILE.settings:set("document.lskip", SILE.length("1em"))
