@@ -13,9 +13,11 @@ package._name = "fancytoc"
 function package:_init (options)
   base._init(self, options)
 
+  self.class:loadPackage("framebox")
   self.class:loadPackage("parbox")
   self.class:loadPackage("leaders")
   pcall(function () return self.class:loadPackage("resilient.styles") end) -- Optional
+  self:registerStyles()
 end
 
 local function linkWrapper (dest, func)
@@ -63,8 +65,6 @@ function package:findToc (packages)
 end
 
 function package:registerCommands ()
-  self:registerStyles()
-
   self:registerCommand("fancytableofcontents", function (options, _)
     local linking = SU.boolean(options.linking, true)
 
@@ -109,6 +109,7 @@ function package:registerCommands ()
             SILE.call("hfill")
             SILE.call("bracebox", { bracewidth = "0.8em"}, function()
               SILE.call("parbox", { valign = "middle", width = "75%lw" }, function ()
+                SILE.settings:set("document.parindent", SILE.length())
                 for _, c in ipairs(v.children) do
                   SILE.call("parbox", { valign = "top", strut = "rule", minimize = true, width = "80%lw" }, function ()
                     SILE.settings:set("document.lskip", SILE.length("1em"))
