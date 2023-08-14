@@ -1,6 +1,6 @@
 --
 -- Fancy table of contents.
--- 2022, Didier Willis
+-- 2022-2023, Omikhleia - Didier Willis
 -- License: MIT
 -- Only processes 2 levels, e.g. parts (level 0) and chapters (level 1)
 -- and display them as some braced content.
@@ -34,7 +34,7 @@ local function getMinLevel (toc)
   return smallest.level
 end
 
-local function cancelFragile(func)
+local function cancelFragile (func)
     -- Temporarilly kill footnotes and labels (fragile)
     local oldFt = SILE.Commands["footnote"]
     SILE.Commands["footnote"] = function () end
@@ -102,6 +102,7 @@ function package:registerCommands ()
           SILE.call("medskip")
           if #v.children > 0 then
             SILE.call("parbox", { valign = "middle", width = "20%lw" }, function ()
+              SILE.settings:set("document.parindent", SILE.nodefactory.glue())
               SILE.call("raggedright", {}, function ()
                 SILE.call("fancytoc:level1", { style = "fancytoc-level1" }, v.item.label)
               end)
@@ -109,7 +110,7 @@ function package:registerCommands ()
             SILE.call("hfill")
             SILE.call("bracebox", { bracewidth = "0.8em"}, function()
               SILE.call("parbox", { valign = "middle", width = "75%lw" }, function ()
-                SILE.settings:set("document.parindent", SILE.length())
+                SILE.settings:set("document.parindent", SILE.nodefactory.glue())
                 for _, c in ipairs(v.children) do
                   SILE.call("parbox", { valign = "top", strut = "rule", minimize = true, width = "80%lw" }, function ()
                     SILE.settings:set("document.lskip", SILE.length("1em"))
@@ -127,6 +128,7 @@ function package:registerCommands ()
             end)
           else
             SILE.call("parbox", { valign = "top", width = "20%lw" }, function ()
+              SILE.settings:set("document.parindent", SILE.nodefactory.glue())
               SILE.call("raggedright", {}, function ()
                 SILE.call("fancytoc:level1", { style = "fancytoc-level1" }, v.item.label)
               end)
