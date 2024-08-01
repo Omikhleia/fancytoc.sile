@@ -5,6 +5,8 @@
 -- Only processes 2 levels, e.g. parts (level 0) and chapters (level 1)
 -- and display them as some braced content.
 --
+require("silex.types") -- Compatibility shims
+
 local base = require("packages.base")
 
 local package = pl.class(base)
@@ -91,8 +93,8 @@ function package:registerCommands ()
     end
 
     SILE.settings:temporarily(function()
-      SILE.settings:set("current.parindent", SILE.nodefactory.glue())
-      SILE.settings:set("document.parindent", SILE.nodefactory.glue())
+      SILE.settings:set("current.parindent", SILE.types.node.glue())
+      SILE.settings:set("document.parindent", SILE.types.node.glue())
 
       cancelFragile(function ()
         -- Quick and dirty for now...
@@ -102,7 +104,7 @@ function package:registerCommands ()
           SILE.call("medskip")
           if #v.children > 0 then
             SILE.call("parbox", { valign = "middle", width = "20%lw" }, function ()
-              SILE.settings:set("document.parindent", SILE.nodefactory.glue())
+              SILE.settings:set("document.parindent", SILE.types.node.glue())
               SILE.call("raggedright", {}, function ()
                 SILE.call("fancytoc:level1", { style = "fancytoc-level1" }, v.item.label)
               end)
@@ -110,12 +112,12 @@ function package:registerCommands ()
             SILE.call("hfill")
             SILE.call("bracebox", { bracewidth = "0.8em"}, function()
               SILE.call("parbox", { valign = "middle", width = "75%lw" }, function ()
-                SILE.settings:set("document.parindent", SILE.nodefactory.glue())
+                SILE.settings:set("document.parindent", SILE.types.node.glue())
                 for _, c in ipairs(v.children) do
                   SILE.call("parbox", { valign = "top", strut = "rule", minimize = true, width = "80%lw" }, function ()
-                    SILE.settings:set("document.lskip", SILE.length("1em"))
-                    SILE.settings:set("document.rskip", SILE.nodefactory.hfillglue())
-                    SILE.settings:set("document.parindent", SILE.length("-0.5em"))
+                    SILE.settings:set("document.lskip", SILE.types.length("1em"))
+                    SILE.settings:set("document.rskip", SILE.types.node.hfillglue())
+                    SILE.settings:set("document.parindent", SILE.types.length("-0.5em"))
                     SILE.call("fancytoc:level2", { style = "fancytoc-level2" }, c.label)
                   end)
                   SILE.call("dotfill")
@@ -128,7 +130,7 @@ function package:registerCommands ()
             end)
           else
             SILE.call("parbox", { valign = "top", width = "20%lw" }, function ()
-              SILE.settings:set("document.parindent", SILE.nodefactory.glue())
+              SILE.settings:set("document.parindent", SILE.types.node.glue())
               SILE.call("raggedright", {}, function ()
                 SILE.call("fancytoc:level1", { style = "fancytoc-level1" }, v.item.label)
               end)
