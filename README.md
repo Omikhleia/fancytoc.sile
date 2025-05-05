@@ -2,7 +2,12 @@
 
 [![license](https://img.shields.io/github/license/Omikhleia/fancytoc.sile?label=License)](LICENSE)
 [![Luacheck](https://img.shields.io/github/actions/workflow/status/Omikhleia/fancytoc.sile/luacheck.yml?branch=main&label=Luacheck&logo=Lua)](https://github.com/Omikhleia/fancytoc.sile/actions?workflow=Luacheck)
-[![Luarocks](https://img.shields.io/luarocks/v/Omikhleia/fancytoc.sile?label=Luarocks&logo=Lua)](https://luarocks.org/modules/Omikhleia/fancytoc.sile)
+
+> [!IMPORTANT]
+> This module is now provided as an integral part of the [resilient.sile](https://github.com/Omikhleia/resilient.sile) collection (release v3).
+> The new implementation is distributed under different license terms.
+>
+> This repository is no longer maintained and will be archived. 
 
 This package for the [SILE](https://github.com/sile-typesetter/sile) typesetting
 system provides an alternative way to output a table of contents, with two levels
